@@ -27,7 +27,7 @@ func (d *Date) Scan(src interface{}) error {
 		return nil
 	}
 
-	return errors.New("0", "pq: cannot convert %T to %T", src, *d)
+	return errors.New(errors.ErrorLevel, 0, "pq: cannot convert %T to %T", src, *d)
 }
 
 func (d Date) Value() (driver.Value, error) {
@@ -53,7 +53,7 @@ func (t *Time) Scan(src interface{}) error {
 		return nil
 	}
 
-	return errors.New("0", "pq: cannot convert %T to %T", src, *t)
+	return errors.New(errors.ErrorLevel, 0, "pq: cannot convert %T to %T", src, *t)
 }
 
 func (t Time) Value() (driver.Value, error) {
@@ -77,7 +77,7 @@ func (d *Day) Scan(src interface{}) error {
 		return nil
 	}
 
-	return errors.New("0", "pq: cannot convert %T to %T", src, *d)
+	return errors.New(errors.ErrorLevel, 0, "pq: cannot convert %T to %T", src, *d)
 }
 
 func (d Day) Value() (driver.Value, error) {
@@ -107,7 +107,7 @@ func (a *ListDay) Scan(src interface{}) error {
 	}
 
 	if err != nil {
-		return errors.New("0", "pq: cannot convert %T to Time", src)
+		return errors.New(errors.ErrorLevel, 0, "pq: cannot convert %T to Time", src)
 	}
 
 	return nil
